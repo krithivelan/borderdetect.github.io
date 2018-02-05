@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my location</title>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Merriweather+Sans|Poppins|Roboto" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+</head>
+<body>
+
+<div class="container">
+	<br>
+	<label for="timestamp">timestamp</label><input type="text" id="timestamp" class="form-control" />
+
+	<label for="accuracy">accuracy</label><input type="text" id="accuracy" class="form-control"/>
+
+	<label for="altitude">altitude</label><input type="text" id="altitude" class="form-control"/>
+
+	<label for="altitudeAccuracy">altitudeAccuracy</label><input type="text" id="altitudeAccuracy" class="form-control"/>
+
+	<label for="heading">heading</label><input type="text" id="heading" class="form-control"/>
+
+	<label for="latitude">latitude</label><input type="text" id="latitude" class="form-control"/>
+
+	<label for="longitude">longitude</label><input type="text" id="longitude" class="form-control"/>
+
+	<label for="speed">speed</label><input type="text" id="speed" class="form-control"/><br>
+
+	<button onclick="startWatch()">start watch</button><button onclick="stopWatch()">stop watch</button>
+</div>
+
+<div id="error"></div>
+
+
+<script type="text/javascript" src="myjs.js"></script>
+
+</body>
+</html>

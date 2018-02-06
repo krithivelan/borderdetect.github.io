@@ -25,6 +25,30 @@ function handleData(geoData){
 	document.querySelector("#latitude").value = geoData.coords.latitude;
 	document.querySelector("#longitude").value = geoData.coords.longitude;
 	document.querySelector("#speed").value = geoData.coords.speed;
+	
+	var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: new google.maps.LatLng(10.92, 76.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(geoData.coords.latitude, geoData.coords.longitude),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker) {
+        return function() {
+          infowindow.setContent("<h1>geoData.coords.latitude<br>geoData.coords.longitude</h1>");
+          infowindow.open(map, marker);
+        }
+      })(marker));
+
 }
 
 function handleError(error){

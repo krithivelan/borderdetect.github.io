@@ -30,11 +30,43 @@
 
 	<label for="altitudeAccuracy">altitudeAccuracy</label><input type="text" id="altitudeAccuracy" class="form-control"/>
 
-	<label for="heading">heading</label><input type="text" id="heading" class="form-control"/>
-
-	
+	<label for="heading">heading</label><input type="text" id="heading" class="form-control"/>	
 
 	<label for="speed">speed</label><input type="text" id="speed" class="form-control"/><br>
+	
+	
+
+<?php
+  $lat1 = "<script>var n=document.getElementById('latitude').val;document.write(n);</script>";
+  $lon1 = "<script>var n=document.getElementById('longitude').val;document.write(n);</script>";
+
+  echo $lat1;
+  echo $lon1;
+  $lat2 = 11.06097;
+
+	if($lat1>=$lat2)
+	{
+		echo "<strong>BORDER DETECTED</strong>";
+		//echo "<br> $lat1 <br>$lon1 <br><br>$lat2 <br>$lon2 <br><br><br>";
+
+				 		
+				 			
+		$textlocal = new Textlocal('krithivelan25@gmail.com', 'Project007fish');
+		$numbers = array($phno);
+		$sender = 'TXTLCL';
+		$message = "You have reached the border. Your latitude : $lat1 and longitude : $lon1. For more details see the link www.fishermanborderdetection.com";
+
+
+		try {
+			 $result = $textlocal->sendSms($numbers, $message, $sender);
+				print_r($result);
+		}
+		catch (Exception $e) {
+			 die('Error: ' . $e->getMessage());
+			}
+	}
+
+?>
 
 	<button onclick="startWatch()">start watch</button><button onclick="stopWatch()">stop watch</button>
 </div>

@@ -26,6 +26,9 @@ function handleData(geoData){
 	document.querySelector("#longitude").value = geoData.coords.longitude;
 	document.querySelector("#speed").value = geoData.coords.speed;
 	
+	var lat = geoData.coords.latitude;
+	var lon = geoData.coords.longitude;
+	
 	var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 8,
       center: new google.maps.LatLng(10.92, 76.25),
@@ -44,7 +47,7 @@ function handleData(geoData){
 
       google.maps.event.addListener(marker, 'click', (function(marker) {
         return function() {
-          infowindow.setContent("<h1>geoData.coords.latitude<br>geoData.coords.longitude</h1>");
+          infowindow.setContent("<h1>"+lat+"<br>"+lon+"</h1>");
           infowindow.open(map, marker);
         }
       })(marker));
